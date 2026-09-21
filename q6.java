@@ -1,29 +1,24 @@
-import java.util.Scanner;
-
 public class q6 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String[] nomes = new String[20];
-        int[] idades = new int[20];
+        int[][] matriz = new int[10][10];
 
-        int soma = 0;
-
-        for (int i = 0; i < 20; i++) {
-            nomes[i] = sc.nextLine();
-            idades[i] = sc.nextInt();
-            sc.nextLine();
-            soma += idades[i];
-        }
-
-        double media = (double) soma / 20;
-        System.out.println("Idade media: " + media);
-
-        for (int i = 0; i < 20; i++) {
-            if (idades[i] > media) {
-                System.out.println(nomes[i]);
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (i < j) {
+                    matriz[i][j] = 2 * i + 7 * j - 2;
+                } else if (i == j) {
+                    matriz[i][j] = 3 * i * i - 1;
+                } else {
+                    matriz[i][j] = 4 * i * i * i - 5 * j * j + 1;
+                }
             }
         }
 
-        sc.close();
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                System.out.print(matriz[i][j] + "\t");
+            }
+            System.out.println();
+        }
     }
 }

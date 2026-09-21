@@ -2,15 +2,22 @@ import java.util.Scanner;
 
 public class q1 {
     public static void main(String[] args) {
-        int[] A = {1, 0, 5, -2, -5, 7};
+        Scanner sc = new Scanner(System.in);
+        int[][] matriz = new int[4][4];
+        int quantidade = 0;
 
-        int soma = A[0] + A[1] + A[5];
-        System.out.println("Soma: " + soma);
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                matriz[i][j] = sc.nextInt();
 
-        A[4] = 100;
-
-        for (int valor : A) {
-            System.out.println(valor);
+                if (matriz[i][j] > 10) {
+                    quantidade++;
+                }
+            }
         }
+
+        System.out.println("Quantidade de valores maiores que 10: " + quantidade);
+
+        sc.close();
     }
 }

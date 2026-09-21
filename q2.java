@@ -1,18 +1,22 @@
-import java.util.Scanner;
-
 public class q2 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int[] valores = new int[6];
+        int[][] matriz = new int[5][5];
 
-        for (int i = 0; i < valores.length; i++) {
-            valores[i] = sc.nextInt();
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (i == j) {
+                    matriz[i][j] = 1;
+                } else {
+                    matriz[i][j] = 0;
+                }
+            }
         }
 
-        for (int valor : valores) {
-            System.out.println(valor);
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println();
         }
-
-        sc.close();
     }
 }

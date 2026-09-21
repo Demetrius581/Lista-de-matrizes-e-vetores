@@ -3,26 +3,43 @@ import java.util.Scanner;
 public class q7 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[] a = new int[20];
-        int[] b = new int[20];
-        int[] c = new int[40];
+        int[][] matriz = new int[3][3];
 
-        for (int i = 0; i < 20; i++) {
-            a[i] = sc.nextInt();
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                matriz[i][j] = sc.nextInt();
+            }
         }
 
-        for (int i = 0; i < 20; i++) {
-            b[i] = sc.nextInt();
+        int acima = 0;
+        int abaixo = 0;
+        int principal = 0;
+        int secundaria = 0;
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (i < j) {
+                    acima += matriz[i][j];
+                }
+
+                if (i > j) {
+                    abaixo += matriz[i][j];
+                }
+
+                if (i == j) {
+                    principal += matriz[i][j];
+                }
+
+                if (i + j == 2) {
+                    secundaria += matriz[i][j];
+                }
+            }
         }
 
-        for (int i = 0; i < 20; i++) {
-            c[2 * i] = a[i];
-            c[2 * i + 1] = b[i];
-        }
-
-        for (int valor : c) {
-            System.out.println(valor);
-        }
+        System.out.println("Acima da diagonal principal: " + acima);
+        System.out.println("Abaixo da diagonal principal: " + abaixo);
+        System.out.println("Diagonal principal: " + principal);
+        System.out.println("Diagonal secundaria: " + secundaria);
 
         sc.close();
     }
